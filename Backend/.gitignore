@@ -23,8 +23,7 @@ Thumbs.db
 # Coverage directory for testing
 coverage/
 
-# Build files (if any)
-dist/
+
 
 # NPM package lock files
 package-lock.json
