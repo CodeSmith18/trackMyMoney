@@ -15,8 +15,11 @@ function Dashboard() {
   const navigate = useNavigate();
   const [page, setPage] = useState("charts");
   const [transactionSubmitted, setTransactionSubmitted] = useState(true);
-  const [sumExpense, setSumExpense] = useState(0);
-  const [sumIncome, setSumIncome] = useState(0);
+  const [maxExpense, setmaxExpense] = useState(0);
+  const [maxIncome, setmaxIncome] = useState(0);
+  const [tincome,settincome] = useState(0);
+  const [texpense,setTExpense] = useState(0);
+
 
   const logout = async () => {
     try {
@@ -60,7 +63,8 @@ function Dashboard() {
         );
         setExpense(response.data.transactions);
         console.log(response.data);
-        setSumExpense(response.data.maxExpense);
+        setmaxExpense(response.data.maxExpense);
+         setTExpense(response.data.sumExpense);
       } catch (error) {
         console.error("Error fetching expenses:", error);
         toast.error("Error fetching expenses"); // Error toast
@@ -76,7 +80,8 @@ function Dashboard() {
         );
         setIncome(response.data.transactions);
         console.log(response.data);
-        setSumIncome(response.data.maxIncome);
+        setmaxIncome(response.data.maxIncome);
+        settincome(response.data.sumIncome);
       } catch (error) {
         console.error("Error fetching income:", error);
         toast.error("Error fetching income"); // Error toast
@@ -96,7 +101,7 @@ function Dashboard() {
     type: "",
     date: "",
     category: "",
-    description: "",
+    description: " ",
     userId: "",
   });
 
@@ -185,16 +190,22 @@ function Dashboard() {
           <div className="line-chart">
             <TransactionChart incomeData={income} expenseData={expense} />
           </div>
+          <div className="balance">
+          
+          </div>
+          <div>
+           <h3> Total Balance = Income :  {tincome} - Expense : {texpense} = {tincome - texpense}</h3>
+          </div>
           <div className="piechart">
             <div>
               <h2>Expenses</h2>
               <PieChart transactions={expense} />
-              <h3>MaxExpense: {sumExpense}</h3>
+              <h3>MaxExpense: {maxExpense}</h3>
             </div>
             <div>
               <h2>Incomes</h2>
               <PieChart transactions={income} />
-              <h3>MaxIncome: {sumIncome}</h3>
+              <h3>MaxIncome: {maxIncome}</h3>
             </div>
           </div>
         </div>

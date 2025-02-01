@@ -1,4 +1,10 @@
 /* Filters Section */
+.history{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   
+}
 .filters {
     display: flex;
     gap: 15px;

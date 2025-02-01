@@ -81,8 +81,8 @@ const Transaction = () => {
   }, [transactionType, category, startDate, endDate, transList]);
 
   return (
-    <>
-      <h2>Transactions</h2>
+    <div className="history">
+       <h2>Transactions</h2>
       <div className="filters">
         <button onClick={reset}>Reset Filters</button>
 
@@ -127,15 +127,19 @@ const Transaction = () => {
           onChange={(e) => setEndDate(e.target.value)}
         />
       </div>
-
+      <div>
       <ul>
         {filteredTrans.map((transaction) => (
           <Trans key={transaction._id} transaction={transaction} getAllTrans={getAllTrans} />
         ))}
       </ul>
+      </div>
+     
 
       <ToastContainer />
-    </>
+    </div> 
+     
+   
   );
 };
 
