@@ -24,7 +24,7 @@ function Signup() {
     try {
       const response = await axios.post("http://localhost:5000/users/signUp", formData);
       toast.success(response.data.message); // Success toast
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       toast.error(error.response?.data?.message || "Signup failed"); // Error toast
     }

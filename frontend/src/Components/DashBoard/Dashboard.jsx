@@ -33,7 +33,7 @@ function Dashboard() {
       console.log(error);
       toast.error("Logout failed"); // Error toast
     }
-    navigate("/login");
+    navigate("/");
   };
 
   useEffect(() => {

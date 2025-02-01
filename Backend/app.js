@@ -3,16 +3,16 @@ const cors =  require('cors');
 const bodyParser  = require('body-parser');
 const dotenv =  require("dotenv");
 const cookieParser = require("cookie-parser"); 
-
-
 const connectMongoDB = require("./db/mongooseConfig.js");
 const userRoutes = require("./routes/userRoutes.js");
 const transRoutes =  require("./routes/transcationRoutes.js")
 
+const path = require("path");
+
 dotenv.config();
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "*",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
@@ -21,13 +21,26 @@ const corsOptions = {
 const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
+
+const _dirname = path.resolve();
+const buildpath = path.join(_dirname,"../frontend/dist");
+app.use(express.static(buildpath));
+
+
+
+
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use('/users',userRoutes);
 app.use('/transaction',transRoutes);
 
-const port = 5000;
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(buildpath, "index.html"));
+});
+
+const port = process.env.PORT || 5000 ;
 connectMongoDB();
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
