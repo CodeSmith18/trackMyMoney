@@ -22,7 +22,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://mymoney.ritikraj.tech/users/signUp", formData);
+      const response = await axios.post("/users/signUp", formData);
       toast.success(response.data.message); // Success toast
       navigate("/");
     } catch (error) {

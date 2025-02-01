@@ -15,7 +15,7 @@ const corsOptions = {
     origin: (origin, callback) => {
         const allowedOrigins = [
             "https://mymoney.ritikraj.tech",
-            "http://localhost:5173",
+            "http://localhost:5000",
             "http://mymoney.ritikraj.tech:5000", 
 
         ];
