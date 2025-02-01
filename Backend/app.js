@@ -12,11 +12,25 @@ const path = require("path");
 dotenv.config();
 
 const corsOptions = {
-    origin: "*",
+    origin: (origin, callback) => {
+        const allowedOrigins = [
+            "https://mymoney.ritikraj.tech",
+            "http://localhost:5173",
+            "http://mymoney.ritikraj.tech:5000", 
+
+        ];
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            // Allow requests with no origin (like Postman or curl)
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
 };
+
 
 const app = express();
 app.use(bodyParser.json());
