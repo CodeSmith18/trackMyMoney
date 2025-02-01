@@ -9,6 +9,7 @@ const transRoutes =  require("./routes/transcationRoutes.js")
 
 const path = require("path");
 
+
 dotenv.config();
 
 const corsOptions = {
@@ -37,8 +38,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 const _dirname = path.resolve();
-const buildpath = path.join(_dirname,"../frontend/dist");
-app.use(express.static(buildpath));
+app.use(express.static(path.join(__dirname, 'dist')));
+
 
 
 
@@ -50,8 +51,8 @@ app.use('/users',userRoutes);
 app.use('/transaction',transRoutes);
 
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(buildpath, "index.html"));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const port = process.env.PORT || 5000 ;
