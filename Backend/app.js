@@ -18,6 +18,7 @@ const corsOptions = {
             "https://mymoney.ritikraj.tech",
             "http://localhost:5000",
             "http://mymoney.ritikraj.tech:5000", 
+            "http://43.204.14.238:5000"
 
         ];
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
