@@ -28,7 +28,7 @@ const Trans = ({ transaction, getAllTrans }) => {
     try {
       // Send delete request to the server
       await axios.post(
-        "http://65.0.183.166:5000/transaction/delete",
+        "https://mymoney.ritikraj.tech/transaction/delete",
         { transactionId: transaction._id },
         { withCredentials: true }
       );
@@ -46,7 +46,7 @@ const Trans = ({ transaction, getAllTrans }) => {
   const update = async () => {
     try {
       await axios.post(
-        "http://65.0.183.166:5000/transaction/updateTrans",
+        "https://mymoney.ritikraj.tech/transaction/updateTrans",
         { transactionId: updatedTrans._id, ...updatedTrans },
         { withCredentials: true }
       );

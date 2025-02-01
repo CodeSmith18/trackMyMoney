@@ -31,7 +31,7 @@ const Transaction = () => {
   const getAllTrans = async () => {
     try {
       const response = await axios.post(
-        "http://65.0.183.166:5000/transaction/getTrans",
+        "https://mymoney.ritikraj.tech/transaction/getTrans",
         {},
         { withCredentials: true, headers: { "Content-Type": "application/json" } }
       );

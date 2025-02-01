@@ -24,7 +24,7 @@ function Dashboard() {
   const logout = async () => {
     try {
       await axios.post(
-        "http://65.0.183.166:5000/users/logout",
+        "https://mymoney.ritikraj.tech/users/logout",
         {},
         { withCredentials: true }
       );
@@ -40,7 +40,7 @@ function Dashboard() {
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          "http://65.0.183.166:5000/users/profile",
+          "https://mymoney.ritikraj.tech/users/profile",
           { withCredentials: true }
         );
         setUser(response.data.user);
@@ -57,7 +57,7 @@ function Dashboard() {
     const fetchExpense = async () => {
       try {
         const response = await axios.post(
-          "http://65.0.183.166:5000/transaction/getExpense",
+          "https://mymoney.ritikraj.tech/transaction/getExpense",
           {},
           { withCredentials: true }
         );
@@ -74,7 +74,7 @@ function Dashboard() {
     const fetchIncome = async () => {
       try {
         const response = await axios.post(
-          "http://65.0.183.166:5000/transaction/getIncome",
+          "https://mymoney.ritikraj.tech/transaction/getIncome",
           {},
           { withCredentials: true }
         );
@@ -144,7 +144,7 @@ function Dashboard() {
       formData.userId = user._id;
 
       const response = await axios.post(
-        "http://65.0.183.166:5000/transaction/addTrans",
+        "https://mymoney.ritikraj.tech/transaction/addTrans",
         formData,
         { withCredentials: true }
       );
