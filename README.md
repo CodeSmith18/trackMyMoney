@@ -1,5 +1,8 @@
 # JWT Authentication and Transaction Management System
 
+## deploy link  http://43.204.14.238:5000/signup  (aws deployed)
+
+## domain , https://mymoney.ritikraj.tech 
 ## Overview
 This application implements JWT-based authentication and transaction management. Users can register, log in, and manage transactions (income and expenses). The frontend utilizes React for the user interface, Axios for API requests, and Chart.js for visualizing financial data.
 
