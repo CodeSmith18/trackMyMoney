@@ -22,7 +22,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/users/signUp", formData);
+      const response = await axios.post("http://65.0.183.166:5000/users/signUp", formData);
       toast.success(response.data.message); // Success toast
       navigate("/");
     } catch (error) {

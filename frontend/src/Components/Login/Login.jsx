@@ -16,7 +16,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/users/login", formData, { withCredentials: true });
+      const response = await axios.post("http://65.0.183.166:5000/users/login", formData, { withCredentials: true });
       toast.success(response.data.message);  // Success toast notification
       navigate("/dashboard");
     } catch (error) {

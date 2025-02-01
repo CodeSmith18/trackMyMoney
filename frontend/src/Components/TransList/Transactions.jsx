@@ -31,7 +31,7 @@ const Transaction = () => {
   const getAllTrans = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/transaction/getTrans",
+        "http://65.0.183.166:5000/transaction/getTrans",
         {},
         { withCredentials: true, headers: { "Content-Type": "application/json" } }
       );
