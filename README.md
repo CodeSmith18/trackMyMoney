@@ -6,6 +6,11 @@
 ## Overview
 This application implements JWT-based authentication and transaction management. Users can register, log in, and manage transactions (income and expenses). The frontend utilizes React for the user interface, Axios for API requests, and Chart.js for visualizing financial data.
 
+![Feautre](1.png)
+![Feature](2.png)
+![Feature](3.png)
+![Feature](4.png)
+
 ## Table of Contents
 - [JWT Authentication Workflow](#jwt-authentication-workflow)
 - [Backend Routes and Functions](#backend-routes-and-functions)
